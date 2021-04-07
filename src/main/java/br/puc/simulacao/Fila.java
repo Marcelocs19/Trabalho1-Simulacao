@@ -16,6 +16,8 @@ public class Fila {
 
     private Integer capacityAtual = 0;
 
+    private Integer perda;
+
     public Fila() {
     }
 
@@ -27,6 +29,7 @@ public class Fila {
         this.maxArrival = maxArrival;
         this.minService = minService;
         this.maxService = maxService;
+        this.perda = 0;
     }
 
     public Integer getServers() {
@@ -85,12 +88,19 @@ public class Fila {
         this.capacityAtual = capacityAtual;
     }
 
+    public Integer getPerda() {
+        return perda;
+    }
+
+    public void setPerda(Integer perda) {
+        this.perda = perda;
+    }
+    
     @Override
     public String toString() {
         return "Fila [capacity=" + capacity + ", capacityAtual=" + capacityAtual + ", maxArrival=" + maxArrival
                 + ", maxService=" + maxService + ", minArrival=" + minArrival + ", minService=" + minService
                 + ", servers=" + servers + "]";
     }
-
     
 }

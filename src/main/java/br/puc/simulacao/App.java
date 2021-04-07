@@ -19,8 +19,6 @@ public class App {
 
     public static double tempoChegada = 3.0;
 
-    public static Integer perda = 0;
-
     public static Boolean parada = true;
 
     public static void main(String[] args) {
@@ -75,20 +73,24 @@ public class App {
 
         filaSimples(3.0);
 
-        System.out.println("Perdas: " + perda);
+        for(int i = 0; i < listaFilas.size(); i++) {
+            System.out.println("Fila (" + i + "): " + listaFilas.get(i).getPerda());
+        }
         System.out.println("Tempo: " + tempoGlobal);
     }
 
     private static void filaSimples(double tempoChegada) {
         chegadaNaFila(tempoChegada);
+        
         while (parada || !listaEventos.isEmpty()) {
             List<Evento> menorTempoEvento = listaEventos.stream().sorted((a,b) -> a.getTempoEvento().compareTo(b.getTempoEvento())).collect(Collectors.toList());
             
             for (Fila fila : listaFilas) {
                 //Caso a fila esteja cheia
                 if(fila.getCapacityAtual() == fila.getCapacity()) {
-                    if(menorTempoEvento.get(0).getTipoEvento() == 1) { // chegada
-                        perda++;
+                    if(menorTempoEvento.get(0).getTipoEvento() == 1) { // chegada                        
+                        Integer perda = fila.getPerda();
+                        fila.setPerda(++perda);
                         listaEventos.remove(menorTempoEvento.get(0));   
                         chegadaNaFila(menorTempoEvento.get(0).getTempoEvento());
 
