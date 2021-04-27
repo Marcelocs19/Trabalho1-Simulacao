@@ -31,10 +31,17 @@ public class Fila {
     public Fila(String nomeFila, Queue queue) {
         this.nomeFila = nomeFila;
         this.servidor = queue.getServers();
-        this.tempoChegadamin = queue.getMinArrival();
-        this.tempoChegadamax = queue.getMaxArrival();
-        this.tempoServiceMin = queue.getMinService();
-        this.tempoServiceMax = queue.getMaxService();
+        try {
+            this.tempoChegadamin = queue.getMinArrival();
+            this.tempoChegadamax = queue.getMaxArrival();
+            this.tempoServiceMin = queue.getMinService();
+            this.tempoServiceMax = queue.getMaxService();            
+        } catch (Exception e) {
+            this.tempoServiceMax = 0;
+            this.tempoServiceMin = 0;
+            this.tempoChegadamax = 0;
+            this.tempoChegadamin = 0;
+        }
         this.times = new double[queue.getCapacity() + 1];
         this.tempoGlobal = 0;
         this.perda = 0;

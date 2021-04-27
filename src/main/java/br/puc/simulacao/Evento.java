@@ -2,7 +2,7 @@ package br.puc.simulacao;
 
 import br.puc.simulacao.fila.Fila;
 
-public class Evento {
+public class Evento implements Comparable {
 
     private double tempo;
 
@@ -35,6 +35,7 @@ public class Evento {
         return destino;
     }
     
+    @Override
     public int compareTo(Object o) {
         Evento evento = (Evento) o;
         if (tempo > evento.tempo) {
