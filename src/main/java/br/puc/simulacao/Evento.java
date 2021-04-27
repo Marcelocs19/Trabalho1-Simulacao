@@ -1,32 +1,59 @@
 package br.puc.simulacao;
 
-public class Evento {
+import br.puc.simulacao.fila.Fila;
 
-    // Chegada = 1
-    // Saida = 2
-    private Integer tipoEvento;
+public class Evento implements Comparable {
 
-    private Double tempoEvento;
+    private double tempo;
 
-    public Evento(Integer tipoEvento, Double tempoEvento) {
-        this.tipoEvento = tipoEvento;
-        this.tempoEvento = tempoEvento;
+    private String tipo;
+
+    private Fila origem;
+
+    private Fila destino;
+
+    public Evento(double tempo, String tipo, Fila origem, Fila destino) {
+        this.tempo = tempo;
+        this.tipo = tipo;
+        this.origem = origem;
+        this.destino = destino;
     }
 
-    public Integer getTipoEvento() {
-        return tipoEvento;
+    public double getTempo() {
+        return tempo;
     }
 
-    public void setTipoEvento(Integer tipoEvento) {
-        this.tipoEvento = tipoEvento;
+    public String getTipo() {
+        return tipo;
     }
 
-    public Double getTempoEvento() {
-        return tempoEvento;
+    public Fila getOrigem() {
+        return origem;
     }
 
-    public void setTempoEvento(Double tempoEvento) {
-        this.tempoEvento = tempoEvento;
+    public Fila getDestino() {
+        return destino;
+    }
+    
+    @Override
+    public int compareTo(Object o) {
+        Evento evento = (Evento) o;
+        if (tempo > evento.tempo) {
+            return 1;
+        } else if (tempo == evento.tempo) {
+            return 0;
+        }
+        return -1;
+    }
+
+    @Override
+    public String toString() {
+        return "Evento{" +
+                "tempo=" + tempo +
+                ", tipo='" + tipo + '\'' +
+                ", origem=" + origem +
+                ", destino=" + destino +
+                '}';
     }
     
 }
