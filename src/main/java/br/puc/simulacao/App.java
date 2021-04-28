@@ -11,7 +11,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        SimulacaoFila simulacaoFila = new LeituraYml().leituraYml();
+        SimulacaoFila simulacaoFila = new LeituraYml().leituraYml("fila.yml");
 
         GeradorNumeroAleatorio geradorNumeroAleatorio = new GeradorNumeroAleatorio(simulacaoFila, simulacaoFila.getRndnumbers());
         

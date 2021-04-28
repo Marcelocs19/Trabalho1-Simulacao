@@ -10,13 +10,13 @@ import br.puc.simulacao.fila.SimulacaoFila;
 
 public class LeituraYml {
 
-    public SimulacaoFila leituraYml() {
+    public SimulacaoFila leituraYml(String nomeArquivo) {
         Representer representer = new Representer();
         representer.getPropertyUtils().setSkipMissingProperties(true);
         Yaml yaml = new Yaml(new Constructor(SimulacaoFila.class), representer);
         InputStream inputStream = this.getClass()
                 .getClassLoader()
-                .getResourceAsStream("fila.yml");
+                .getResourceAsStream(nomeArquivo);
         return yaml.load(inputStream);
     }
 
