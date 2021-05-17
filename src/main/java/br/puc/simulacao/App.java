@@ -15,10 +15,9 @@ public class App {
 
         GeradorNumeroAleatorio geradorNumeroAleatorio = new GeradorNumeroAleatorio(simulacaoFila, simulacaoFila.getRndnumbers());
         
-        PriorityQueue<Evento> escalonador = new PriorityQueue<>();
         List<Fila> filas = ExecucaoSimulacao.criadorFilas(simulacaoFila);
 
-        Simulador simulador = new Simulador(escalonador, filas, geradorNumeroAleatorio);
+        Simulador simulador = new Simulador(filas, geradorNumeroAleatorio);
         
         ExecucaoSimulacao.executarSimulacao(simulacaoFila, filas, simulador, geradorNumeroAleatorio);
     

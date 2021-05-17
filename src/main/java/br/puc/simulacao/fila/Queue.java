@@ -2,9 +2,9 @@ package br.puc.simulacao.fila;
 
 public class Queue {
 
-    private Integer servers;
+    private int servers;
 
-    private Integer capacity;
+    private int capacity;
 
     private Double minArrival;
 
@@ -17,7 +17,7 @@ public class Queue {
     public Queue() {
     }
 
-    public Queue(Integer servers, Integer capacity, Double minArrival, Double maxArrival,
+    public Queue(int servers, int capacity, Double minArrival, Double maxArrival,
             Double minService, Double maxService) {
         this.servers = servers;
         this.capacity = capacity;
@@ -27,19 +27,19 @@ public class Queue {
         this.maxService = maxService;
     }
 
-    public Integer getServers() {
+    public int getServers() {
         return servers;
     }
 
-    public void setServers(Integer servers) {
+    public void setServers(int servers) {
         this.servers = servers;
     }
 
-    public Integer getCapacity() {
+    public int getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(Integer capacity) {
+    public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 

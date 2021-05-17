@@ -89,7 +89,7 @@ public class GeradorNumeroAleatorio {
 
     public double geraNumeroRandom() {
         limite--;
-        if (numerosAleatorios != null) {
+        if (numerosAleatorios != null && numerosAleatorios.size() > 0) {
             return numerosAleatorios.remove();
         }
         proximaSemente = (proximaSemente * a + c) % M;

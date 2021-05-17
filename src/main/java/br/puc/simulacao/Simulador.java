@@ -16,8 +16,8 @@ public class Simulador {
 
     private GeradorNumeroAleatorio geradorNumeroAleatorio;
 
-    public Simulador(PriorityQueue<Evento> escalonador, List<Fila> filas, GeradorNumeroAleatorio geradorNumeroAleatorio) {
-        this.escalonador = escalonador;
+    public Simulador(List<Fila> filas, GeradorNumeroAleatorio geradorNumeroAleatorio) {
+        this.escalonador = new PriorityQueue<>();
         this.tempoGlobal = 0;
         this.filas = filas;
         this.geradorNumeroAleatorio = geradorNumeroAleatorio;
